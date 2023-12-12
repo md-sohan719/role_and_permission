@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\UserController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,6 +19,17 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/home', function () {
+    return view('welcome');
+});
+
+Route::get('/logout', function () {
+    Auth::logout();
+    return redirect()->back();
+});
+
 Route::get('dashboard', function () {
     return view('backend.dashboard.index');
 })->name('dashboard');
+
+Route::get('user-list', [UserController::class, 'index'])->name('user-list');
