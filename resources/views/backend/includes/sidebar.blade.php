@@ -264,8 +264,8 @@
                         </li>
                     </ul>
                 </li>
-                <li class="nav-item {{ request()->is(['user-list']) ? 'open-menu' : '' }}">
-                    <a href="#" class="nav-link {{ request()->is(['user-list']) ? 'active' : '' }}">
+                <li class="nav-item {{ request()->is(['user-list', 'roles']) ? 'menu-open' : '' }}">
+                    <a href="#" class="nav-link {{ request()->is(['user-list', 'roles']) ? 'active' : '' }}">
                         <i class="nav-icon fas fa-table"></i>
                         <p>
                             Users
@@ -278,6 +278,13 @@
                                 class="nav-link {{ request()->is(['user-list']) ? 'active' : '' }}">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>User List</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('roles') }}"
+                                class="nav-link {{ request()->is(['roles']) ? 'active' : '' }}">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Role List</p>
                             </a>
                         </li>
                     </ul>

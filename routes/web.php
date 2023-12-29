@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\RoleAndPermissionController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -33,3 +34,7 @@ Route::get('dashboard', function () {
 })->name('dashboard');
 
 Route::get('user-list', [UserController::class, 'index'])->name('user-list');
+Route::get('roles', [RoleAndPermissionController::class, 'indexRole'])->name('roles');
+
+Route::post('store-role-ajax', [RoleAndPermissionController::class, 'storeRoleAjax']);
+Route::post('update-role-ajax', [RoleAndPermissionController::class, 'updateRoleAjax']);
